@@ -33,8 +33,10 @@ function Store(name, minCust, maxCust, avgCookieSale) {
     }
   };
 
+  this.totalSales();
+
   this.renderHTML = function() {
-    this.totalSales();
+
     var newUl = document.createElement('ul');
     var newHeading = document.createElement('h2');
     newHeading.innerText = name;
@@ -45,37 +47,13 @@ function Store(name, minCust, maxCust, avgCookieSale) {
       newLi.innerText = storeHours[i] + ': ' + salesArray[i] + ' cookies';
       newUl.appendChild(newLi);
     }
+
     var TotalLi = document.createElement('li');
     TotalLi.innerText = 'Total' + ': ' + this.total + ' cookies';
     newUl.appendChild(TotalLi);
     body.appendChild(newUl);
   };
 };
-
-//Form
-var form = document.getElementById('the-form');
-body.appendChild(form);
-var btn = document.getElementById('submit'); btn.disabled = true;
-body.appendChild(btn);
-
-var theFormItself = event.target;
-  // the "elements" attribute of the event.target object holds (for a form) all of the form fields by name
-  console.log(theFormItself.elements['name', 'minCust', 'maxCust', 'avgCookieSale'].value);
-  };
-
-form.addEventListener('submit', alertTheUser);
-
-target.addEventListener(type, listener[, options]);
-target.addEventListener(type, listener[, useCapture]);
-
-function alertTheUser(event){
-  event.preventDefault(); // stops the form from submitting and leaving the page.
-  // time for the harvest
-  var theFormItself = event.target;
-  // the "elements" attribute of the event.target object holds (for a form) all of the form fields by name
-  console.log(theFormItself.elements['firstname'].value);
-};
-form.addEventListener('submit', alertTheUser);
 
 //Table
 
@@ -114,8 +92,40 @@ tabFuction = function() {
     var tData = document.createElement('td');
     tData.innerText = firstPike.salesArray[i];
     tabRow.appendChild(tData);
-
   };
+
+  function newTableRow(store) {
+    var tabRow = document.createElement('tr');
+    tBody.appendChild(tabRow);
+
+    var rowName = document.createElement('th');
+    tabRow.appendChild(rowName);
+    rowName.innerText = store.name;
+
+    for (var i = 0; i < storeHours.length; i++) {
+      var tData = document.createElement('td');
+      tData.innerText = store.salesArray[i];
+      tabRow.appendChild(tData);
+    };
+  }
+  newTableRow(firstPike);
+  newTableRow(seaTac);
+  newTableRow(seaCenter);
+  newTableRow(capHill);
+  newTableRow(alki);
+
+  // var tabRow = document.createElement('tr');
+  // tBody.appendChild(tabRow);
+  //
+  // var rowName = document.createElement('th');
+  // tabRow.appendChild(rowName);
+  // rowName.innerText = firstPike.name;
+  //
+  // for (var i = 0; i < storeHours.length; i++) {
+  //   var tData = document.createElement('td');
+  //   tData.innerText = firstPike.salesArray[i];
+  //   tabRow.appendChild(tData);
+  // };
 
 //footer
   var tFoot = document.createElement('tf');
@@ -124,5 +134,4 @@ tabFuction = function() {
 
 ///End Table
 
-firstPike.renderHTML();
 tabFuction();
