@@ -122,9 +122,13 @@ tabFuction = function() {
 
 tabFuction();
 
+var form = document.getElementById('the-form');
+console.log(form);
 form.addEventListener('submit', newStore);
-var form;
-function newStore(event) {
+
+//new store function
+
+ newStore(event) {
 
   event.preventDefault();
   var name = event.target.elements.storeName.value;
@@ -137,13 +141,13 @@ function newStore(event) {
   console.log(avgCookieSale);
 
   var newStore = new Store(name, minCust, maxCust, avgCookieSale);
-  newStore.newTableRow();
 
   for (var i = 0; i < storeHours.length; i++) {
     var tData = document.createElement('td');
-    tData.innerText = the - this.event.salesArray[i];
+    tData.innerText = this.event.salesArray[i];
     tabRow.appendChild(tData);
 
   };
   var form = document.getElementById('the-form');
+  newTableRow(newStore);
 }
