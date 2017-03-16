@@ -7,7 +7,6 @@ var capHill = new Store('Capitol Hill', 20, 38, 2.3);
 var alki = new Store('Alki', 2, 16, 4.6);
 
 function Store(name, minCust, maxCust, avgCookieSale) {
-
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -56,7 +55,7 @@ function Store(name, minCust, maxCust, avgCookieSale) {
 
 //Table
 //table function
-tabFuction = function() {
+var tabFunction = function() {
   var table = document.createElement('table');
   body.appendChild(table);
 
@@ -82,31 +81,6 @@ tabFuction = function() {
   var tabRow = document.createElement('tr');
   tBody.appendChild(tabRow);
 
-  var rowName = document.createElement('th');
-  tabRow.appendChild(rowName);
-  rowName.innerText = firstPike.name;
-
-  for (var i = 0; i < storeHours.length; i++) {
-    var tData = document.createElement('td');
-    tData.innerText = firstPike.salesArray[i];
-    tabRow.appendChild(tData);
-  };
-
-  function newTableRow(store) {
-    var tabRow = document.createElement('tr');
-    tBody.appendChild(tabRow);
-
-    var rowName = document.createElement('th');
-    tabRow.appendChild(rowName);
-    rowName.innerText = store.name;
-
-    for (var i = 0; i < storeHours.length; i++) {
-      var tData = document.createElement('td');
-      tData.innerText = store.salesArray[i];
-      tabRow.appendChild(tData);
-    };
-  }
-
   newTableRow(firstPike);
   newTableRow(seaTac);
   newTableRow(seaCenter);
@@ -118,36 +92,41 @@ tabFuction = function() {
   body.appendChild(tFoot);
 };
 
-///End Table
+function newTableRow(store) {
+  var tBody = document.getElementsByTagName('tbody')[0];
+  var tabRow = document.createElement('tr');
+  tBody.appendChild(tabRow);
 
-tabFuction();
-
-var form = document.getElementById('the-form');
-console.log(form);
-form.addEventListener('submit', newStore);
-
-//new store function
-
- newStore(event) {
-
-  event.preventDefault();
-  var name = event.target.elements.storeName.value;
-  console.log(name);
-  var minCust = event.target.elements.minCust.value;
-  console.log(minCust);
-  var maxCust = event.target.elements.maxCust.value;
-  console.log(maxCust);
-  var avgCookieSale = event.target.elements.aveCookies.value;
-  console.log(avgCookieSale);
-
-  var newStore = new Store(name, minCust, maxCust, avgCookieSale);
+  var rowName = document.createElement('th');
+  tabRow.appendChild(rowName);
+  rowName.innerText = store.name;
 
   for (var i = 0; i < storeHours.length; i++) {
     var tData = document.createElement('td');
-    tData.innerText = this.event.salesArray[i];
+    tData.innerText = store.salesArray[i];
     tabRow.appendChild(tData);
-
   };
-  var form = document.getElementById('the-form');
-  newTableRow(newStore);
 }
+///End Table
+
+tabFunction();
+
+var form = document.getElementById('the-form');
+function createNewStore(event) {
+  event.preventDefault();
+  var name = event.target.elements.storeName;
+  var minCust = event.target.elements.minCust;
+  var maxCust = event.target.elements.maxCust;
+  var avgCookieSale = event.target.elements.aveCookies;
+
+  if (maxCust < minCust) {
+    alert('The max number of customers should not be larger than the min number of customers');
+  } else {
+    var newStore = new Store(name.value, Math.floor(minCust.value), Math.floor(maxCust.value), avgCookieSale.value);
+    newTableRow(newStore);
+
+    form.reset();
+  }
+}
+
+form.addEventListener('submit', createNewStore);
