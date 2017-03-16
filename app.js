@@ -107,20 +107,6 @@ tabFuction = function() {
     };
   }
 
-  alertTheUser = function(event){
-    var form = document.getElementById('the-form');
-    body.appendChild(form);
-    var formName = document.getElementById('submit');
-    body.appendChild(btn);
-    var fMin = document.getElementById('minCust');
-    body.appendChild(form);
-    var fromMax = document.getElementById('maxCust');
-    body.appendChild(form);
-    var bform = document.getElementById('submit'); btn.disabled = true;
-    body.appendChild(btn);
-    event.preventDefault();
-  };
-
   newTableRow(firstPike);
   newTableRow(seaTac);
   newTableRow(seaCenter);
@@ -135,3 +121,29 @@ tabFuction = function() {
 ///End Table
 
 tabFuction();
+
+form.addEventListener('submit', newStore);
+var form;
+function newStore(event) {
+
+  event.preventDefault();
+  var name = event.target.elements.storeName.value;
+  console.log(name);
+  var minCust = event.target.elements.minCust.value;
+  console.log(minCust);
+  var maxCust = event.target.elements.maxCust.value;
+  console.log(maxCust);
+  var avgCookieSale = event.target.elements.aveCookies.value;
+  console.log(avgCookieSale);
+
+  var newStore = new Store(name, minCust, maxCust, avgCookieSale);
+  newStore.newTableRow();
+
+  for (var i = 0; i < storeHours.length; i++) {
+    var tData = document.createElement('td');
+    tData.innerText = the - this.event.salesArray[i];
+    tabRow.appendChild(tData);
+
+  };
+  var form = document.getElementById('the-form');
+}
