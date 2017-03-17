@@ -1,13 +1,12 @@
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-var storeArray = [];
-
 var firstPike = new Store('1st and Pike', 23, 65, 6.3);
 var seaTac = new Store('SeaTac Airport', 3, 24, 1.3);
 var seaCenter = new Store('Seattle Center', 11, 38, 2.3);
 var capHill = new Store('Capitol Hill', 20, 38, 2.3);
 var alki = new Store('Alki', 2, 16, 4.6);
 
+//store object:
 function Store(name, minCust, maxCust, avgCookieSale) {
   this.name = name;
   this.minCust = minCust;
@@ -15,6 +14,7 @@ function Store(name, minCust, maxCust, avgCookieSale) {
   this.avgCookieSale = avgCookieSale;
   this.total = 0;
   this.salesArray = [];
+  var salesArray = this.salesArray;
   var total = this.total;
 
   this.randomCust = function() {
@@ -28,33 +28,32 @@ function Store(name, minCust, maxCust, avgCookieSale) {
   this.totalSales = function() {
     for (var i = 0; i < storeHours.length; i++) {
       var randomHourlySale = this.randomHourlySale();
-      this.salesArray.push(randomHourlySale);
+      salesArray.push(randomHourlySale);
       this.total += randomHourlySale;
     }
   };
 
   this.totalSales();
-  // this.renderHTML = function() {
-  //
-  //   var newUl = document.createElement('ul');
-  //   var newHeading = document.createElement('h2');
-  //   newHeading.innerText = name;
-  //   body.appendChild(newHeading);
-  //
-  //   for (var i = 0; i < salesArray.length; i++) {
-  //     var newLi = document.createElement('li');
-  //     newLi.innerText = storeHours[i] + ': ' + salesArray[i] + ' cookies';
-  //     newUl.appendChild(newLi);
-  //   }
-  //
-  //   var TotalLi = document.createElement('li');
-  //   TotalLi.innerText = 'Total' + ': ' + this.total + ' cookies';
-  //   newUl.appendChild(TotalLi);
-  //   body.appendChild(newUl);
-  // };
-  storeArray.push(this);
+  this.renderHTML = function() {
+
+    var newUl = document.createElement('ul');
+    var newHeading = document.createElement('h2');
+    newHeading.innerText = name;
+    body.appendChild(newHeading);
+
+    for (var i = 0; i < salesArray.length; i++) {
+      var newLi = document.createElement('li');
+      newLi.innerText = storeHours[i] + ': ' + salesArray[i] + ' cookies';
+      newUl.appendChild(newLi);
+    }
+
+    var TotalLi = document.createElement('li');
+    TotalLi.innerText = 'Total' + ': ' + this.total + ' cookies';
+    newUl.appendChild(TotalLi);
+    body.appendChild(newUl);
+  };
 };
-console.log(storeArray);
+
 //Table
 //table function
 var tabFunction = function() {
@@ -109,10 +108,11 @@ function newTableRow(store) {
     tabRow.appendChild(tData);
   };
 }
-///End Table
+//End Table
 
 tabFunction();
 
+//
 var form = document.getElementById('the-form');
 function createNewStore(event) {
   event.preventDefault();
@@ -130,44 +130,5 @@ function createNewStore(event) {
     form.reset();
   }
 }
-//3-16-
-function hourlyTotals(){
-  var tBody = document.getElementsByTagName('tbody')[0];
-  var tabRow = document.createElement('tr');
-  tBody.appendChild(tabRow);
 
-  var rowName = document.createElement('th');
-  tabRow.appendChild(rowName);
-  rowName.innerText = 'Total Sales';
-
-  for (h = 0; h < storeHours.length; h++) {
-    var tData = document.createElement('td');
-    var hourly = 0;
-    for (j = 0; j < storeArray.length; j++){
-      hourly += storeArray[j].salesArray[h];
-
-    }
-    console.log(tData);
-    tData.innerText = hourly;
-    tabRow.appendChild(tData);
-  }
-};
-
-// function newTableRow(store) {
-//   var tBody = document.getElementsByTagName('tbody')[0];
-//   var tabRow = document.createElement('tr');
-//   tBody.appendChild(tabRow);
-//
-//   var rowName = document.createElement('th');
-//   tabRow.appendChild(rowName);
-//   rowName.innerText = store.name;
-//
-//   for (var i = 0; i < storeHours.length; i++) {
-//     var tData = document.createElement('td');
-//     tData.innerText = store.salesArray[i];
-//     tabRow.appendChild(tData);
-//   };
-// }
-
-hourlyTotals();
 form.addEventListener('submit', createNewStore);
