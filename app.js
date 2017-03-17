@@ -6,6 +6,7 @@ var seaCenter = new Store('Seattle Center', 11, 38, 2.3);
 var capHill = new Store('Capitol Hill', 20, 38, 2.3);
 var alki = new Store('Alki', 2, 16, 4.6);
 
+//store object:
 function Store(name, minCust, maxCust, avgCookieSale) {
   this.name = name;
   this.minCust = minCust;
@@ -107,10 +108,11 @@ function newTableRow(store) {
     tabRow.appendChild(tData);
   };
 }
-///End Table
+//End Table
 
 tabFunction();
 
+//
 var form = document.getElementById('the-form');
 function createNewStore(event) {
   event.preventDefault();
