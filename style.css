@@ -42,11 +42,9 @@ th {
 #the-form {
 	background-color: #f4f4f4;
 	width: 40%;
-	border: none;
 	color: #A64C35;
 	border-radius: 5px;
-	decoration: none;
-  margin: 10px;
+  margin: 30px;
 }
 
 button {
@@ -63,6 +61,7 @@ hr {
 }
 
 footer {
+  padding-top: 20px;
   text-align: center;
   font-size: 12px:
   font-family: 'Source Sans Pro', sans-serif;
