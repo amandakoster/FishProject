@@ -1,21 +1,49 @@
 <!--So, in addition to building an application that calculates daily sales projections for each location (in a file called sales.html), you also need to create a pubic-facing page (in a file called index.html) that is colorful, eye-catching, readable, useful, informative... and ultimately of a quality ready for use on T-shirts, stickers, coffee mugs, cookie bags, napkins, and so on.-->
 
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<head>
+	<meta charset="utf-8">
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Anton|Source+Sans+Pro" rel="stylesheet">
+
+	<title>
+	</title>
+</head>
+
+<body id="body">
+	<img alt="Photo of a Salmon" id="salmon" src="https://github.com/codefellows/seattle-201d20/blob/master/class-06-dom-objects-domain_modeling/lab/assets/salmon.png?raw=true">
+
+	<h1>Pat's Salmon Cookies</h1>
+
+<div id="slideshow">
+   <div>
+     <img src="https://raw.githubusercontent.com/codefellows/seattle-201d20/master/class-09-css_wireframe_part_1/lab/assets/family.jpg">
+   </div>
+   <div>
+     <img src="https://raw.githubusercontent.com/codefellows/seattle-201d20/master/class-09-css_wireframe_part_1/lab/assets/chinook.jpg">
+   </div>
+   <div>
+     <img ssrc="https://raw.githubusercontent.com/codefellows/seattle-201d20/master/class-09-css_wireframe_part_1/lab/assets/salmon.png">
+   </div>
+   <div>
+     <img src="https://raw.githubusercontent.com/codefellows/seattle-201d20/master/class-09-css_wireframe_part_1/lab/assets/cutter.jpeg">
+   </div>
+   <div>
+     <img src="https://raw.githubusercontent.com/codefellows/seattle-201d20/master/class-09-css_wireframe_part_1/lab/assets/frosted-cookie.jpg">
+   </div>
+   <div>
+     <img src="https://raw.githubusercontent.com/codefellows/seattle-201d20/master/class-09-css_wireframe_part_1/lab/assets/fish.jpg">
+   </div>
+   <div>
+     <img src="https://raw.githubusercontent.com/codefellows/seattle-201d20/master/class-09-css_wireframe_part_1/lab/assets/shirt.jpg">
+   </div>
+</div>
+
+    <footer> locations 1234 Pike Street, Seattle, WA 98118 <br> hours: open 9am - 5pm, M-F, contact information: <br> phone: 206-123-4567, email: pat@salmoncookies.com <br><q>Pat's Salmon Cookies are the best in the nation</q> --Anthony Bourdain </footer>
 
   </body>
+  <script src="test.js">
+  </script>
 </html>
-
-
-// renderHTML: function() {
-//   var newUl = document.createElement('ul');
-//   var newLi = document.createElement('li');
-//   newLi.innerText = storeHours[0] + ': ' + this.salesArray[0] + 'cookies';
-//   newUl.appendChild(newLi);
-//   var body = document.getElementById('body');
-//   body.appendChild(Ul);
