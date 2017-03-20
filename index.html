@@ -1,4 +1,3 @@
-<!--So, in addition to building an application that calculates daily sales projections for each location (in a file called sales.html), you also need to create a pubic-facing page (in a file called index.html) that is colorful, eye-catching, readable, useful, informative... and ultimately of a quality ready for use on T-shirts, stickers, coffee mugs, cookie bags, napkins, and so on.-->
 <!DOCTYPE html>
 
 <html>
@@ -14,33 +13,55 @@
 </head>
 
 <body id="body">
-	<img alt="Photo of a Salmon" id="salmon" src="https://github.com/codefellows/seattle-201d20/blob/master/class-06-dom-objects-domain_modeling/lab/assets/salmon.png?raw=true">
+	<img alt="Photo of a Salmon" id="salmon" src="img/salmon.png">
 
 	<h1>Pat's Salmon Cookies</h1>
+
 
 	<h2><i aria-hidden="true" class="fa fa-quote-left"></i> Pat's Salmon Cookies are the hands down best in the world!! <i aria-hidden="true" class="fa fa-quote-right"></i><br>
 	--Anthony Bourdain</h2>
 
 	<hr>
 
-<div class="css-slideshow">
-  <figure>
-    <img src="img/family.jpg" width="495" height="370" />
-     <figcaption><strong>CSS3:</strong> CSS3 delivers a...</figcaption>
-  </figure>
-  <figure>
-    <img src="img/family.jpg" width="495" height="370" />
-    <figcaption><strong>Semantics:</strong> Giving meaning to...</figcaption>
-  </figure>
-</div>
 
-		<hr>
+	<p>Welome to our small famy biz! Our small family loves fish. One day our kid Pat found a fish cookie cutter. From there we decided to make some really gross cookies. At first they were pretty rough looking. The cookies slowly started to look better and biz is booming. So, like every American store we also sell t-shirt swag.</p>
 
-		<footer>
-			Location: 1234 Pike Street, Seattle, WA 98118<br>
-			Hours: open 9am - 5pm, M-F<br>
-			Phone: 206-123-4567, Email: pat@salmoncookies.com
-		</footer>
+
+	<div class="slideshow">
+		<div class="slide current"><img alt="" src="img/family.jpg">
+		</div>
+
+
+		<div class="slide"><img alt="" src="img/chinook.jpg">
+		</div>
+
+
+		<div class="slide"><img alt="" src="img/cutter.jpeg">
+		</div>
+
+
+		<div class="slide"><img alt="" src="img/frosted-cookie.jpg">
+		</div>
+
+
+		<div class="slide"><img alt="" src="img/fish.jpg">
+		</div>
+
+
+		<div class="slide"><img alt="" src="img/shirt.jpg">
+		</div>
 	</div>
+	<span id="previous-button">Previous</span> <span id="next-button">Next</span>
+
+	<hr>
+
+
+	<footer>
+		Hours: 9am - 5pm, M-F<br>
+		Location: 1234 Pike Street, Seattle, WA 98118<br>
+		Phone: 206-123-4567 &middot; Email: pat@salmoncookies.com
+	</footer>
+	<script src="slideshow.js">
+	</script>
 </body>
 </html>
