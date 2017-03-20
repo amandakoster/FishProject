@@ -11,6 +11,13 @@ h1 {
 	margin-right: auto
 }
 
+#sales {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 15px;
+	text-decoration: none;
+	font-style: bold;
+}
+
 h2 {
 	font-size: 20px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -73,6 +80,23 @@ button {
 	color: #A64C35;
 	text-decoration: none;
 	border-radius: 3px;
+	cursor: pointer;
+}
+
+a {
+    color: #ff6600;
+}
+a:visited {
+    color: #ff6600;
+}
+a:hover {
+    color: #f4429e;
+}
+a:focus {
+    color: #ff6600;
+}
+a:active {
+    color: #ff6600;
 }
 
 hr {
